@@ -47,7 +47,6 @@ Script ini akan:
 4. Normalisasi nama kelas: `lblue-20` → `blue_draw_two`, `lcolor-400` → `wild_draw_four`, dst.
 5. Menyimpan ke `keras_dataset/<nama_kelas>/`
 
-> **Penting:** Crop di-resize ke 224×224 dengan padding — bukan stretch — agar proporsi kartu terjaga. Ini harus konsisten dengan preprocessing di `app.py`.
 
 ---
 
@@ -67,21 +66,6 @@ keras_dataset/
     ↓ Fase 2: Fine-Tuning (30 layer terakhir di-unfreeze, LR kecil)
     ↓ Evaluasi + confusion matrix + training history plot
     ↓ Simpan uno_mobilenetv2_final.h5
-```
-
-### Augmentasi Training
-
-```python
-ImageDataGenerator(
-    rotation_range=30,
-    zoom_range=0.25,
-    width_shift_range=0.15,
-    height_shift_range=0.15,
-    horizontal_flip=True,
-    brightness_range=[0.7, 1.3],
-    shear_range=0.15,
-    fill_mode='nearest'
-)
 ```
 
 ### Arsitektur Model
